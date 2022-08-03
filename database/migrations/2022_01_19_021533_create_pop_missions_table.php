@@ -17,6 +17,7 @@ class CreatePopMissionsTable extends Migration
             $table->id();
             $table->string('status')->notNullable();
             $table->string('description')->notNullable();
+            $table->string('tittle')->notNullable();
             $table->unsignedBigInteger('pop_id')->notNullable();
             $table->foreign('pop_id')->references('id')->on('pops');
             $table->timestamps();

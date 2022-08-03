@@ -11,9 +11,10 @@ class PopMission extends Model
 
     protected $fillable = [
        
-        'status'
+        'status',
         'description',
         'pop_id',
+        'tittle',
     ];
    
     public function pop()

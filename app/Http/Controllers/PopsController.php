@@ -18,7 +18,7 @@ class PopsController extends Controller
     }
     public function showAll()
     {
-        $result = Pop::with('businessAlliance')->get();
+        $result = Pop::with('Pop','Pops')->get();
 
 
         return response()->json($result);
@@ -34,5 +34,18 @@ class PopsController extends Controller
         return response()->json($pop, 201);
 
         // $organization = Organization::findOrFail($id)
+    }
+    public function update($id, Request $request)
+    {
+        
+        $pop = Pop::findOrFail($id);
+        $pop->update($request->all());
+
+        return response()->json($pop, 200);
+    }
+    public function delete($id)
+    {
+        Pop::findOrFail($id)->delete();
+        return response('Deleted successfully', 200);
     }
 }

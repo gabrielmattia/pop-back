@@ -78,14 +78,22 @@ $router->group(['prefix' => 'api'], function ($router) {
 
         $router->get('pop/{id}', 'PopsController@showOne');
         $router->get('pop', 'PopsController@showAll');
-
         $router->post('pop', 'PopsController@create');
+        $router->put('pop/{id}', 'PopsController@update');
+        $router->delete('pop/{id}', 'PopsController@delete');
+
+
+        $router->post('popmission', 'PopMissionsController@create');
+        $router->put('popmission/{id}', 'PopMissionsController@update');
+        $router->delete('popmission/{id}', 'PopMissionsController@delete');
+
+
 
 
         $router->get('constituent_process/{id}', 'ConstituentProcessController@showOne');
         $router->get('constituent_process', 'ConstituentProcessController@showAll');
-
         $router->post('constituent_process', 'ConstituentProcessController@create');
+        $router->delete('constituent_process/{id}', 'ConstituentProcessController@delete');
 
         $router->get('users', 'AuthController@getUsers');
 

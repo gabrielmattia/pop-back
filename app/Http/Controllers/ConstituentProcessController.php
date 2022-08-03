@@ -21,6 +21,18 @@ class ConstituentProcessController extends Controller
     {
         return response()->json(ConstituentProcess::all(), 200);
     }
+    public function delete($id)
+    {
+        $delete=ConstituentProcess::findOrFail($id);
+    
+
+        
+       unlink('C:\Users\biels\Desktop\pop-back\public\ConstituentProcess\\'.$delete->file_name);
+    //    rmdir('C:\Users\biels\Desktop\pop-back\public\ConstituentProcess\\'.$delete->file_name);
+      $delete->delete();
+
+        return response('Deleted successfully', 200);
+    }
 
     public function create(Request $request)
     {

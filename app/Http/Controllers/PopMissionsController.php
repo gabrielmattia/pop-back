@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PopMissions;
+use App\Models\PopMission;
 use Illuminate\Http\Request;
 
 class PopMissionsController extends Controller
@@ -18,7 +18,7 @@ class PopMissionsController extends Controller
     }
     public function showAllPopMissions()
     {
-        $result = PopMissions::get();
+        $result = PopMission::get();
 
         return response()->json($result);
     }
@@ -28,10 +28,23 @@ class PopMissionsController extends Controller
     }
     public function create(Request $request)
     {
-        $pop = PopMissions::create($request->all());
+        $mission = PopMission::create($request->all());
 
-        return response()->json($pop, 201);
+        return response()->json($mission, 201);
 
         // $organization = Organization::findOrFail($id)
+    }
+    public function update($id, Request $request)
+    {
+        
+        $mission = PopMission::findOrFail($id);
+        $mission->update($request->all());
+
+        return response()->json($mission, 200);
+    }
+    public function delete($id)
+    {
+        PopMission::findOrFail($id)->delete();
+        return response('Deleted successfully', 200);
     }
 }

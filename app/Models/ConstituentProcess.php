@@ -27,7 +27,7 @@ class ConstituentProcess extends Model
 
     public function users()
     {
-        $result = $this->hasMany('App\Models\User', 'user_id', 'id');
+        $result = $this->hasOne('App\Models\User', 'id', 'user_id');
         return $result;
     }
 }
