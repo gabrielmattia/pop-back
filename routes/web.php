@@ -93,6 +93,8 @@ $router->group(['prefix' => 'api'], function ($router) {
         $router->get('constituent_process/{id}', 'ConstituentProcessController@showOne');
         $router->get('constituent_process', 'ConstituentProcessController@showAll');
         $router->post('constituent_process', 'ConstituentProcessController@create');
+        $router->put('constituent_process/{id}', 'ConstituentProcessController@update');
+        
         $router->delete('constituent_process/{id}', 'ConstituentProcessController@delete');
 
         $router->get('users', 'AuthController@getUsers');

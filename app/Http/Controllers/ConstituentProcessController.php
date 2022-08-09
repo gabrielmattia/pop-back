@@ -36,9 +36,16 @@ class ConstituentProcessController extends Controller
 
     public function create(Request $request)
     {
-        $category = ConstituentProcess::create($request->all());
+        $constituent = ConstituentProcess::create($request->all());
 
-        return response()->json($category, 201);
+        return response()->json($constituent, 201);
+    }
+    public function update($id, Request $request)
+    {
+        $constituent = ConstituentProcess::findOrFail($id);
+        $constituent->update($request->all());
+
+        return response()->json($constituent, 200);
     }
 
         // $process = ConstituentProcess::create([
