@@ -87,6 +87,8 @@ $router->group(['prefix' => 'api'], function ($router) {
         $router->put('popmission/{id}', 'PopMissionsController@update');
         $router->delete('popmission/{id}', 'PopMissionsController@delete');
 
+        $router->post('mission_process', 'MissionProcessController@create');
+
 
 
 

@@ -10,7 +10,7 @@ class AllianceMember extends Model
     use HasFactory;
 
     protected $fillable = [
-
+        'id',
         'cnpj',
         'name',
         'zip_code',
