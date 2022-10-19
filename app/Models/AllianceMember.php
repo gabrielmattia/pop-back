@@ -36,8 +36,8 @@ class AllianceMember extends Model
         $result = $this->hasOne('App\Models\User', 'id', 'user_id');
         return $result;
     }
-    public function constituentProcess(){
+    public function constituentProcess()
+    {
         return $this->hasMany('App\Models\ConstituentProcess', 'alliance_member_id', 'id');
-
     }
 }
